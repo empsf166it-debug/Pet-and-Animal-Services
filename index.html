@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GroomPaws – Premium Pet Grooming & Animal Care</title>
+  <meta name="description" content="GroomPaws is a premium pet grooming salon offering full grooming, spa baths, styling, nail, ear and teeth care for dogs and cats by certified, caring groomers. Book an appointment today.">
+  <meta name="theme-color" content="#49334F">
+  <meta property="og:title" content="GroomPaws – Premium Pet Grooming & Animal Care">
+  <meta property="og:description" content="Because every pet deserves a little extra pampering.">
+  <meta property="og:image" content="assets/img/hero_dog.png">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐾</text></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,800;1,9..144,500;1,9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+
+  <!-- Tailwind CSS v3 (Play CDN). For production, compile with the Tailwind CLI. -->
+  <script src="https://cdn.tailwindcss.com/3.4.5"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { cream: '#FFF8EF', peach: '#FFD6C2', lav: '#C9B8F2', plum: '#49334F', mint: '#BFE5D0', coral: '#F29E86', lavdeep: '#9a7fd6' },
+          fontFamily: { display: ['Fraunces', 'serif'], sans: ['"Plus Jakarta Sans"', 'sans-serif'] },
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="font-sans antialiased">
+
+<!-- Reusable SVG symbols -->
+<svg width="0" height="0" class="absolute" aria-hidden="true">
+  <symbol id="paw" viewBox="0 0 64 64">
+    <ellipse cx="32" cy="42" rx="14" ry="12"/>
+    <ellipse cx="14" cy="26" rx="6" ry="8" transform="rotate(-20 14 26)"/>
+    <ellipse cx="25" cy="15" rx="6" ry="8.5" transform="rotate(-6 25 15)"/>
+    <ellipse cx="39" cy="15" rx="6" ry="8.5" transform="rotate(6 39 15)"/>
+    <ellipse cx="50" cy="26" rx="6" ry="8" transform="rotate(20 50 26)"/>
+  </symbol>
+  <symbol id="logo" viewBox="0 0 48 48">
+    <defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#C9B8F2"/><stop offset="1" stop-color="#F29E86"/></linearGradient></defs>
+    <path d="M24 3c11.6 0 21 9.4 21 21s-9.4 21-21 21S3 35.6 3 24 12.4 3 24 3z" fill="url(#lg)"/>
+    <path d="M24 26.5c5.2 0 9 3.6 9 7.4 0 3-2.4 4.4-5 4.4-1.6 0-2.6-.8-4-.8s-2.4.8-4 .8c-2.6 0-5-1.4-5-4.4 0-3.8 3.8-7.4 9-7.4z" fill="#49334F"/>
+    <ellipse cx="14.5" cy="22" rx="3.2" ry="4.2" fill="#49334F" transform="rotate(-18 14.5 22)"/>
+    <ellipse cx="20.5" cy="15.5" rx="3.2" ry="4.4" fill="#49334F"/>
+    <ellipse cx="27.5" cy="15.5" rx="3.2" ry="4.4" fill="#49334F"/>
+    <ellipse cx="33.5" cy="22" rx="3.2" ry="4.2" fill="#49334F" transform="rotate(18 33.5 22)"/>
+    <path d="M38 6l1.2 2.8L42 10l-2.8 1.2L38 14l-1.2-2.8L34 10l2.8-1.2z" fill="#FFF8EF"/>
+  </symbol>
+</svg>
+
+<!-- Loader -->
+<div id="loader" role="status" aria-label="Loading GroomPaws">
+  <div class="loader-paws" aria-hidden="true">
+    <svg><use href="#paw"/></svg><svg><use href="#paw"/></svg><svg><use href="#paw"/></svg><svg><use href="#paw"/></svg>
+  </div>
+  <p class="font-display text-2xl font-bold text-plum">Groom<span class="text-grad">Paws</span></p>
+</div>
+
+<a href="#home" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] bg-plum text-cream px-4 py-2 rounded-full">Skip to content</a>
+
+<!-- ================= HEADER ================= -->
+<header id="header" class="fixed top-0 inset-x-0 z-50 py-3">
+  <nav class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between gap-4" aria-label="Main navigation">
+    <a href="#home" class="flex items-center gap-2.5 shrink-0" aria-label="GroomPaws home">
+      <svg class="w-11 h-11"><use href="#logo"/></svg>
+      <span class="font-display text-2xl font-extrabold tracking-tight">Groom<span class="text-grad">Paws</span></span>
+    </a>
+    <ul class="hidden xl:flex items-center gap-5">
+      <li><a class="nav-link" href="#home">Home</a></li>
+      <li><a class="nav-link" href="#about">About</a></li>
+      <li><a class="nav-link" href="#services">Services</a></li>
+      <li><a class="nav-link" href="#packages">Packages</a></li>
+      <li><a class="nav-link" href="#gallery">Gallery</a></li>
+      <li><a class="nav-link" href="#groomers">Our Groomers</a></li>
+      <li><a class="nav-link" href="#care">Pet Care</a></li>
+      <li><a class="nav-link" href="#testimonials">Testimonials</a></li>
+      <li><a class="nav-link" href="#contact">Contact</a></li>
+    </ul>
+    <div class="flex items-center gap-3">
+      <a href="#contact" class="btn btn-primary hidden sm:inline-flex !py-2.5 !px-5 text-sm"><i class="fa-solid fa-calendar-check"></i> Book Appointment</a>
+      <button id="burger" class="burger xl:hidden w-12 h-12 rounded-full bg-white/80 shadow grid place-items-center" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <div><span></span><span></span><span></span></div>
+      </button>
+    </div>
+  </nav>
+  <!-- Mobile menu -->
+  <div id="mobileMenu" class="closed xl:hidden fixed inset-x-0 top-0 -z-10 bg-cream pt-24 pb-8 px-6 shadow-2xl rounded-b-[2rem] max-h-screen overflow-y-auto">
+    <ul class="grid gap-1 text-lg font-semibold">
+      <li><a class="nav-link block py-2" href="#home">Home</a></li>
+      <li><a class="nav-link block py-2" href="#about">About</a></li>
+      <li><a class="nav-link block py-2" href="#services">Services</a></li>
+      <li><a class="nav-link block py-2" href="#packages">Packages</a></li>
+      <li><a class="nav-link block py-2" href="#gallery">Gallery</a></li>
+      <li><a class="nav-link block py-2" href="#groomers">Our Groomers</a></li>
+      <li><a class="nav-link block py-2" href="#care">Pet Care</a></li>
+      <li><a class="nav-link block py-2" href="#testimonials">Testimonials</a></li>
+      <li><a class="nav-link block py-2" href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="btn btn-primary w-full mt-6"><i class="fa-solid fa-calendar-check"></i> Book Appointment</a>
+  </div>
+</header>
+
+<main>
+<!-- ================= 1. HERO ================= -->
+<section id="home" class="relative pt-28 pb-16 lg:pt-36 lg:pb-24 overflow-hidden">
+  <div class="blob bg-peach/70 w-[520px] h-[520px] -top-40 -right-40"></div>
+  <div class="blob bg-mint/60 w-[300px] h-[300px] bottom-0 -left-32"></div>
+  <svg class="float-paw text-lav w-10 h-10 top-32 left-[6%]" style="--r:-20deg"><use href="#paw"/></svg>
+  <svg class="float-paw text-peach w-14 h-14 bottom-16 left-[45%]" style="--r:15deg;animation-delay:-2s"><use href="#paw"/></svg>
+  <svg class="float-paw text-mint w-8 h-8 top-24 right-[40%]" style="--r:30deg;animation-delay:-4s"><use href="#paw"/></svg>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+    <div>
+      <span class="inline-flex items-center gap-2 glass rounded-full px-4 py-2 text-sm font-semibold shadow-sm" data-aos="fade-down">
+        <span class="w-2 h-2 rounded-full bg-coral animate-ping"></span> Certified Pet Spa · Est. 2014
+      </span>
+      <h1 class="font-display font-extrabold text-[2.5rem] leading-[1.05] sm:text-6xl lg:text-[4.3rem] mt-6 tracking-tight">
+        <span class="reveal-line"><span>Because Every Pet</span></span>
+        <span class="reveal-line"><span>Deserves a <em class="text-grad not-italic font-extrabold italic">Little Extra</em></span></span>
+        <span class="reveal-line"><span><span class="underline-swash relative z-0">Pampering.</span></span></span>
+      </h1>
+      <p class="mt-6 text-lg text-plum/75 max-w-xl" data-aos="fade-up" data-aos-delay="300">
+        GroomPaws is a boutique grooming studio where certified stylists, gentle hands and premium natural products turn every visit into a calm, tail-wagging spa day.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-4" data-aos="fade-up" data-aos-delay="450">
+        <a href="#contact" class="btn btn-primary">Book a Grooming Session <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="#services" class="btn btn-ghost">Explore Our Services</a>
+      </div>
+      <div class="mt-10 flex items-center gap-4" data-aos="fade-up" data-aos-delay="600">
+        <div class="flex -space-x-3">
+          <img class="w-11 h-11 rounded-full border-2 border-cream object-cover" src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=120&q=70" alt="Happy beagle client">
+          <img class="w-11 h-11 rounded-full border-2 border-cream object-cover" src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=120&q=70" alt="Happy cat client">
+          <img class="w-11 h-11 rounded-full border-2 border-cream object-cover" src="https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?auto=format&fit=crop&w=120&q=70" alt="Happy dog client">
+        </div>
+        <div>
+          <div class="text-amber-400 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <span class="text-plum font-bold ml-1">4.9</span></div>
+          <p class="text-sm font-semibold">Happy Pets, Happy Parents <span class="text-plum/60 font-normal">· 12k+ grooms</span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="relative mx-auto w-full max-w-[520px]" data-aos="zoom-in" data-aos-duration="1200">
+      <div class="absolute inset-6 rounded-full border-2 border-dashed border-lav spin-slow"></div>
+      <div class="orb w-16 h-16 -top-2 left-6 z-20" style="--c:#FFD6C2"></div>
+      <div class="orb w-10 h-10 bottom-20 -right-2 z-20" style="--c:#BFE5D0;animation-delay:-3s"></div>
+      <div class="orb w-7 h-7 top-1/3 -left-4 z-20" style="--c:#C9B8F2;animation-delay:-5s"></div>
+      <div class="hero-frame relative aspect-[4/5] bg-peach shadow-[0_40px_80px_-30px_rgba(73,51,79,.5)]">
+        <img src="assets/img/hero_dog.png" alt="Freshly groomed happy fluffy Maltipoo with a lavender bow" class="w-full h-full object-cover object-center" fetchpriority="high">
+      </div>
+      <div class="glass absolute -left-2 sm:-left-8 bottom-16 rounded-2xl px-4 py-3 shadow-xl z-30 flex items-center gap-3" style="animation:floaty 6s ease-in-out infinite">
+        <span class="w-10 h-10 rounded-xl bg-mint grid place-items-center"><i class="fa-solid fa-shield-heart"></i></span>
+        <div><p class="text-xs text-plum/60">Fear-Free</p><p class="font-bold text-sm">Certified Groomers</p></div>
+      </div>
+      <div class="glass absolute -right-2 sm:-right-6 top-14 rounded-2xl px-4 py-3 shadow-xl z-30" style="animation:floaty 7s ease-in-out -2s infinite">
+        <p class="font-display text-2xl font-extrabold text-grad">100%</p><p class="text-xs font-semibold">Natural Shampoos</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 2. ABOUT ================= -->
+<section id="about" class="relative py-20 lg:py-28 bg-white/60 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-12 gap-12 items-center">
+    <div class="lg:col-span-6 relative" data-aos="fade-right">
+      <div class="relative rounded-[2.5rem] rounded-tr-[8rem] overflow-hidden aspect-[4/3] lg:aspect-[5/6] shadow-2xl">
+        <img data-parallax="0.06" src="assets/img/about_groomer.png" alt="GroomPaws groomer gently brushing a golden retriever" class="w-full h-[115%] object-cover -mt-[7%]" loading="lazy">
+      </div>
+      <div class="absolute -bottom-8 right-4 sm:-right-6 bg-plum text-cream rounded-3xl p-5 sm:p-6 shadow-2xl w-56 rotate-3" data-aos="flip-left" data-aos-delay="300">
+        <i class="fa-solid fa-quote-left text-peach text-2xl"></i>
+        <p class="font-display italic text-lg leading-snug mt-2">"We groom the way we'd want to be pampered."</p>
+        <p class="text-xs mt-3 text-cream/70">— Elena, Founder</p>
+      </div>
+      <svg class="float-paw text-peach w-16 h-16 -top-6 -left-4" style="--r:-15deg"><use href="#paw"/></svg>
+    </div>
+
+    <div class="lg:col-span-6 lg:pl-8">
+      <p class="uppercase tracking-[.25em] text-sm font-bold text-lavdeep" data-aos="fade-up">About GroomPaws</p>
+      <h2 class="font-display text-4xl sm:text-5xl font-extrabold mt-3 leading-tight" data-aos="fade-up" data-aos-delay="100">Grooming is self-care <em class="text-grad">for the ones</em> who can't ask for it.</h2>
+      <p class="mt-6 text-plum/75 text-lg" data-aos="fade-up" data-aos-delay="200">Founded by a team of certified stylists and animal lovers, GroomPaws blends salon-level artistry with a slow, calm, fear-free approach. No rushing, no cages, no harsh chemicals — just patient hands and a lot of treats.</p>
+      <p class="mt-4 text-plum/70" data-aos="fade-up" data-aos-delay="250">Regular professional grooming isn't just about looks. It prevents painful matting, catches skin issues early, keeps nails and ears healthy and helps your pet feel genuinely comfortable in their own coat.</p>
+
+      <ul class="mt-8 grid grid-cols-2 gap-x-6 gap-y-5">
+        <li class="flex gap-3 items-start" data-aos="fade-up" data-aos-delay="300"><span class="w-11 h-11 shrink-0 rounded-2xl bg-peach grid place-items-center"><i class="fa-solid fa-heart"></i></span><div><p class="font-bold">Love</p><p class="text-sm text-plum/65">Every pet treated like family.</p></div></li>
+        <li class="flex gap-3 items-start" data-aos="fade-up" data-aos-delay="350"><span class="w-11 h-11 shrink-0 rounded-2xl bg-lav grid place-items-center"><i class="fa-solid fa-shield-dog"></i></span><div><p class="font-bold">Safety</p><p class="text-sm text-plum/65">Pet-first CPR certified staff.</p></div></li>
+        <li class="flex gap-3 items-start" data-aos="fade-up" data-aos-delay="400"><span class="w-11 h-11 shrink-0 rounded-2xl bg-mint grid place-items-center"><i class="fa-solid fa-pump-soap"></i></span><div><p class="font-bold">Hygiene</p><p class="text-sm text-plum/65">Sanitised tools after every pet.</p></div></li>
+        <li class="flex gap-3 items-start" data-aos="fade-up" data-aos-delay="450"><span class="w-11 h-11 shrink-0 rounded-2xl bg-plum text-cream grid place-items-center"><i class="fa-solid fa-award"></i></span><div><p class="font-bold">Professional Care</p><p class="text-sm text-plum/65">Breed-specific expertise.</p></div></li>
+      </ul>
+
+      <div class="mt-10 grid grid-cols-3 rounded-3xl bg-cream border border-peach divide-x divide-peach" data-aos="zoom-in-up" data-aos-delay="200">
+        <div class="p-4 sm:p-5 text-center"><p class="font-display text-3xl sm:text-4xl font-extrabold"><span data-count="12500">0</span>+</p><p class="text-xs sm:text-sm text-plum/65">Happy Pets</p></div>
+        <div class="p-4 sm:p-5 text-center"><p class="font-display text-3xl sm:text-4xl font-extrabold text-grad"><span data-count="18">0</span></p><p class="text-xs sm:text-sm text-plum/65">Expert Groomers</p></div>
+        <div class="p-4 sm:p-5 text-center"><p class="font-display text-3xl sm:text-4xl font-extrabold"><span data-count="12">0</span>yrs</p><p class="text-xs sm:text-sm text-plum/65">Years of Care</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 3. SERVICES ================= -->
+<section id="services" class="relative py-20 lg:py-28">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">
+      <div class="max-w-2xl">
+        <p class="uppercase tracking-[.25em] text-sm font-bold text-lavdeep" data-aos="fade-up">Our Grooming Services</p>
+        <h2 class="font-display text-4xl sm:text-5xl font-extrabold mt-3 leading-tight" data-aos="fade-up" data-aos-delay="100">From nose to tail, <em class="text-grad">beautifully</em> cared for.</h2>
+      </div>
+      <p class="text-plum/70 max-w-md" data-aos="fade-up" data-aos-delay="200">Hover (or tap) any service to see what's included. Every treatment is tailored to your pet's breed, coat and temperament.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:auto-rows-[260px]">
+      <!-- Big card -->
+      <article class="svc-card lg:col-span-2 lg:row-span-2 min-h-[340px] text-cream cursor-pointer" data-aos="fade-up" tabindex="0">
+        <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&w=1000&q=70" alt="Dog receiving a full grooming and styling session" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-t from-plum via-plum/40 to-transparent"></div>
+        <div class="relative h-full flex flex-col justify-end p-7">
+          <span class="svc-icon w-14 h-14 rounded-2xl bg-peach text-plum grid place-items-center text-xl mb-4"><i class="fa-solid fa-scissors"></i></span>
+          <p class="text-xs uppercase tracking-widest text-peach font-bold">Signature</p>
+          <h3 class="font-display text-3xl font-bold">Full Grooming & Styling</h3>
+          <p class="text-cream/80 mt-2 max-w-md">Bath, blow dry, breed-standard or custom cut, nails, ears and a finishing spritz.</p>
+          <div class="svc-details"><ul class="mt-3 text-sm grid grid-cols-2 gap-1 text-cream/90"><li><i class="fa-solid fa-check text-mint mr-1"></i> 90–150 min</li><li><i class="fa-solid fa-check text-mint mr-1"></i> From $65</li><li><i class="fa-solid fa-check text-mint mr-1"></i> All coat types</li><li><i class="fa-solid fa-check text-mint mr-1"></i> Bow or bandana</li></ul>
+          <a href="#contact" data-service="Full Grooming & Styling" class="inline-block mt-3 text-sm font-bold text-peach underline underline-offset-4">Book this service →</a></div>
+        </div>
+      </article>
+
+      <article class="svc-card bg-mint p-6 flex flex-col cursor-pointer" data-aos="fade-up" data-aos-delay="80" tabindex="0">
+        <div class="flex items-start justify-between"><span class="svc-icon w-12 h-12 rounded-2xl bg-white grid place-items-center"><i class="fa-solid fa-shower"></i></span>
+        <img src="https://images.unsplash.com/photo-1625316708582-7c38734be31d?auto=format&fit=crop&w=300&q=70" alt="Dog enjoying a bubbly bath" class="w-20 h-20 rounded-full object-cover border-4 border-white" loading="lazy"></div>
+        <h3 class="font-display text-2xl font-bold mt-auto">Bath & Blow Dry</h3>
+        <p class="text-sm text-plum/70">Warm hydro-bath with natural shampoo & fluff dry.</p>
+        <div class="svc-details text-sm"><p class="mt-2 font-semibold">45–60 min · From $35</p><a href="#contact" data-service="Bath & Blow Dry" class="font-bold underline underline-offset-4">Book →</a></div>
+      </article>
+
+      <article class="svc-card relative text-cream min-h-[260px] cursor-pointer" data-aos="fade-up" data-aos-delay="160" tabindex="0">
+        <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=600&q=70" alt="Neatly trimmed French bulldog" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-br from-lavdeep/80 to-plum/80"></div>
+        <div class="relative p-6 h-full flex flex-col"><span class="svc-icon w-12 h-12 rounded-2xl bg-white/20 backdrop-blur grid place-items-center"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
+        <h3 class="font-display text-2xl font-bold mt-auto">Hair Trimming & Styling</h3><p class="text-sm text-cream/80">Face, feet & sanitary tidy-ups between full grooms.</p>
+        <div class="svc-details text-sm"><p class="mt-2 font-semibold">30–45 min · From $30</p><a href="#contact" data-service="Hair Trimming & Styling" class="font-bold underline underline-offset-4">Book →</a></div></div>
+      </article>
+
+      <article class="svc-card bg-peach p-6 flex flex-col cursor-pointer" data-aos="fade-up" data-aos-delay="80" tabindex="0">
+        <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=500&q=70" alt="Dog paws ready for nail clipping" class="w-full h-24 object-cover rounded-2xl" loading="lazy">
+        <div class="flex items-center gap-3 mt-4"><span class="svc-icon w-10 h-10 rounded-xl bg-white grid place-items-center"><i class="fa-solid fa-paw"></i></span><h3 class="font-display text-xl font-bold">Nail Clipping</h3></div>
+        <p class="text-sm text-plum/70 mt-1">Gentle clip & smooth file.</p>
+        <div class="svc-details text-sm"><p class="mt-2 font-semibold">15 min · From $15</p><a href="#contact" data-service="Nail Clipping" class="font-bold underline underline-offset-4">Book →</a></div>
+      </article>
+
+      <article class="svc-card bg-white border border-peach p-6 flex flex-col cursor-pointer" data-aos="fade-up" data-aos-delay="160" tabindex="0">
+        <div class="flex items-center gap-3"><img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=300&q=70" alt="Two dogs with clean healthy ears" class="w-16 h-16 rounded-2xl object-cover" loading="lazy"><span class="svc-icon w-10 h-10 rounded-xl bg-lav grid place-items-center"><i class="fa-solid fa-ear-listen"></i></span></div>
+        <h3 class="font-display text-xl font-bold mt-auto">Ear Cleaning</h3><p class="text-sm text-plum/70">Vet-approved solution, hair plucking if needed.</p>
+        <div class="svc-details text-sm"><p class="mt-2 font-semibold">15 min · From $15</p><a href="#contact" data-service="Ear Cleaning" class="font-bold underline underline-offset-4">Book →</a></div>
+      </article>
+
+      <article class="svc-card bg-plum text-cream p-6 flex flex-col cursor-pointer" data-aos="fade-up" data-aos-delay="240" tabindex="0">
+        <div class="flex items-start justify-between"><span class="svc-icon w-12 h-12 rounded-2xl bg-mint text-plum grid place-items-center"><i class="fa-solid fa-tooth"></i></span>
+        <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=300&q=70" alt="Smiling pug showing clean teeth" class="w-20 h-20 rounded-full object-cover border-4 border-lav" loading="lazy"></div>
+        <h3 class="font-display text-xl font-bold mt-auto">Teeth Cleaning</h3><p class="text-sm text-cream/75">Enzyme brushing for fresh breath.</p>
+        <div class="svc-details text-sm"><p class="mt-2 font-semibold">15 min · From $18</p><a href="#contact" data-service="Teeth Cleaning" class="font-bold underline underline-offset-4 text-peach">Book →</a></div>
+      </article>
+
+      <article class="svc-card relative text-plum min-h-[260px] cursor-pointer" data-aos="fade-up" data-aos-delay="80" tabindex="0">
+        <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=600&q=70" alt="Fluffy cat after de-shedding" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+        <div class="absolute inset-x-3 bottom-3 glass rounded-2xl p-4"><div class="flex items-center gap-2"><i class="svc-icon fa-solid fa-wind text-lavdeep"></i><h3 class="font-display text-xl font-bold">De-shedding Treatment</h3></div><p class="text-sm text-plum/70">Reduce shedding by up to 80%.</p>
+        <div class="svc-details text-sm"><p class="mt-1 font-semibold">60 min · From $45</p><a href="#contact" data-service="De-shedding Treatment" class="font-bold underline underline-offset-4">Book →</a></div></div>
+      </article>
+
+      <article class="svc-card bg-gradient-to-br from-lav to-peach p-6 flex flex-col sm:col-span-2 lg:col-span-1 cursor-pointer" data-aos="fade-up" data-aos-delay="160" tabindex="0">
+        <img src="https://images.unsplash.com/photo-1507146426996-ef05306b995a?auto=format&fit=crop&w=500&q=70" alt="Cute puppy ready for its first groom" class="w-full h-28 object-cover rounded-2xl" loading="lazy">
+        <div class="flex items-center gap-2 mt-4"><span class="svc-icon w-9 h-9 rounded-xl bg-white grid place-items-center"><i class="fa-solid fa-baby"></i></span><h3 class="font-display text-xl font-bold">Puppy First Groom</h3></div>
+        <p class="text-sm text-plum/75 mt-1">A gentle, playful intro for pups 10–20 weeks.</p>
+        <div class="svc-details text-sm"><p class="mt-2 font-semibold">40 min · From $29</p><a href="#contact" data-service="Puppy First Groom" class="font-bold underline underline-offset-4">Book →</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 4. PACKAGES ================= -->
+<section id="packages" class="relative py-20 lg:py-28 bg-gradient-to-b from-[#f5efff] to-cream overflow-hidden">
+  <svg class="float-paw text-lav/60 w-24 h-24 top-10 right-[8%]" style="--r:20deg"><use href="#paw"/></svg>
+  <svg class="float-paw text-peach w-12 h-12 bottom-14 left-[4%]" style="--r:-30deg;animation-delay:-3s"><use href="#paw"/></svg>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 relative">
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <p class="uppercase tracking-[.25em] text-sm font-bold text-lavdeep" data-aos="fade-up">Grooming Packages & Pricing</p>
+      <h2 class="font-display text-4xl sm:text-5xl font-extrabold mt-3" data-aos="fade-up" data-aos-delay="100">Pick the perfect <em class="text-grad">pamper plan</em></h2>
+      <p class="mt-4 text-plum/70" data-aos="fade-up" data-aos-delay="150">Transparent pricing. Final price may vary slightly for coat condition or matting.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+      <div class="price-card relative bg-white rounded-[2rem] p-7 flex flex-col shadow-[0_20px_50px_-30px_rgba(73,51,79,.5)]" data-aos="fade-up">
+        <img src="https://images.unsplash.com/photo-1561037404-61cd46aa615b?auto=format&fit=crop&w=200&q=70" alt="Small puppy" class="w-16 h-16 rounded-2xl object-cover" loading="lazy">
+        <h3 class="font-display text-2xl font-bold mt-5">Puppy Starter</h3>
+        <p class="text-sm text-plum/60">Puppies up to 6 months</p>
+        <p class="mt-5"><span class="font-display text-5xl font-extrabold">$39</span><span class="text-plum/60">/visit</span></p>
+        <ul class="mt-6 space-y-3 text-sm flex-1">
+          <li><i class="fa-solid fa-circle-check text-mint mr-2"></i>Gentle tearless bath</li>
+          <li><i class="fa-solid fa-circle-check text-mint mr-2"></i>Fluff dry & brush</li>
+          <li><i class="fa-solid fa-circle-check text-mint mr-2"></i>Nail trim</li>
+          <li><i class="fa-solid fa-circle-check text-mint mr-2"></i>Face & paw tidy</li>
+        </ul>
+        <a href="#contact" data-package="Puppy Starter" class="btn btn-ghost mt-7 w-full">Book This Package</a>
+      </div>
+
+      <div class="price-card relative bg-white rounded-[2rem] p-7 flex flex-col shadow-[0_20px_50px_-30px_rgba(73,51,79,.5)]" data-aos="fade-up" data-aos-delay="100">
+        <img src="https://images.unsplash.com/photo-1530281700549-e82e7bf110d6?auto=format&fit=crop&w=200&q=70" alt="Fluffy medium dog" class="w-16 h-16 rounded-2xl object-cover" loading="lazy">
+        <h3 class="font-display text-2xl font-bold mt-5">Fresh & Fluffy</h3>
+        <p class="text-sm text-plum/60">Small–medium, regular upkeep</p>
+        <p class="mt-5"><span class="font-display text-5xl font-extrabold">$59</span><span class="text-plum/60">/visit</span></p>
+        <ul class="mt-6 space-y-3 text-sm flex-1">
+          <li><i class="fa-solid fa-circle-check text-mint mr-2"></i>Bath & blow dry</li>
+          <li><i class="fa-solid fa-circle-check text-mint mr-2"></i>Trim & tidy styling</li>
+          <li><i class="fa-solid fa-circle-check text-mint mr-2"></i>Nail clip & ear clean</li>
+          <li><i class="fa-solid fa-circle-check text-mint mr-2"></i>Cologne spritz</li>
+        </ul>
+        <a href="#contact" data-package="Fresh & Fluffy" class="btn btn-ghost mt-7 w-full">Book This Package</a>
+      </div>
+
+      <!-- Featured -->
+      <div class="price-card featured-ring shine relative text-cream rounded-[2rem] p-7 flex flex-col shadow-[0_40px_70px_-25px_rgba(73,51,79,.8)] lg:-mt-6 lg:mb-[-1.5rem]" data-aos="zoom-in" data-aos-delay="200">
+        <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-lav to-coral text-plum text-xs font-extrabold tracking-widest uppercase px-4 py-2 rounded-full shadow-lg whitespace-nowrap"><i class="fa-solid fa-crown mr-1"></i> Most Loved</span>
+        <img src="https://images.unsplash.com/photo-1558788353-f76d92427f16?auto=format&fit=crop&w=200&q=70" alt="Relaxed dog at the spa" class="w-16 h-16 rounded-2xl object-cover ring-4 ring-lav/60" loading="lazy">
+        <h3 class="font-display text-2xl font-bold mt-5">Luxury Paw Spa</h3>
+        <p class="text-sm text-cream/70">All sizes · pampering & coat repair</p>
+        <p class="mt-5"><span class="font-display text-5xl font-extrabold text-grad">$89</span><span class="text-cream/60">/visit</span></p>
+        <ul class="mt-6 space-y-3 text-sm flex-1">
+          <li><i class="fa-solid fa-circle-check text-peach mr-2"></i>Blueberry facial & oatmeal mask</li>
+          <li><i class="fa-solid fa-circle-check text-peach mr-2"></i>Deep conditioning treatment</li>
+          <li><i class="fa-solid fa-circle-check text-peach mr-2"></i>Full styling & blow out</li>
+          <li><i class="fa-solid fa-circle-check text-peach mr-2"></i>Paw balm massage</li>
+          <li><i class="fa-solid fa-circle-check text-peach mr-2"></i>Teeth brushing</li>
+        </ul>
+        <a href="#contact" data-package="Luxury Paw Spa" class="btn mt-7 w-full bg-cream text-plum hover:bg-peach">Book This Package <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="price-card relative bg-white rounded-[2rem] p-7 flex flex-col shadow-[0_20px_50px_-30px_rgba(73,51,79,.5)]" data-aos="fade-up" data-aos-delay="300">
+        <img src="https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?auto=format&fit=crop&w=200&q=70" alt="Large dog" class="w-16 h-16 rounded-2xl object-cover" loading="lazy">
+        <h3 class="font-display text-2xl font-bold mt-5">Complete Grooming</h3>
+        <p class="text-sm text-plum/60">Large & double-coated breeds</p>
+        <p class="mt-5"><span class="font-display text-5xl font-extrabold">$115</span><span class="text-plum/60">/visit</span></p>
+        <ul class="mt-6 space-y-3 text-sm flex-1">
+          <li><i class="fa-solid fa-circle-check text-mint mr-2"></i>Everything in Luxury Spa</li>
+          <li><i class="fa-solid fa-circle-check text-mint mr-2"></i>De-shedding treatment</li>
+          <li><i class="fa-solid fa-circle-check text-mint mr-2"></i>Dematting (up to 20 min)</li>
+          <li><i class="fa-solid fa-circle-check text-mint mr-2"></i>Pawdicure & nail polish</li>
+        </ul>
+        <a href="#contact" data-package="Complete Grooming" class="btn btn-ghost mt-7 w-full">Book This Package</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 5. GALLERY (Before & After) ================= -->
+<section id="gallery" class="relative py-20 lg:py-28">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="grid lg:grid-cols-2 gap-6 items-end mb-10">
+      <div>
+        <p class="uppercase tracking-[.25em] text-sm font-bold text-lavdeep" data-aos="fade-up">Before & After Gallery</p>
+        <h2 class="font-display text-4xl sm:text-5xl font-extrabold mt-3" data-aos="fade-up" data-aos-delay="100">Glow-ups that <em class="text-grad">speak for themselves</em></h2>
+      </div>
+      <div class="flex flex-wrap gap-2 lg:justify-end" role="group" aria-label="Filter gallery" data-aos="fade-left">
+        <button class="filter-btn active px-5 rounded-full bg-white border border-peach font-semibold text-sm" data-filter="all" aria-pressed="true">All</button>
+        <button class="filter-btn px-5 rounded-full bg-white border border-peach font-semibold text-sm" data-filter="dogs" aria-pressed="false"><i class="fa-solid fa-dog mr-1"></i> Dogs</button>
+        <button class="filter-btn px-5 rounded-full bg-white border border-peach font-semibold text-sm" data-filter="cats" aria-pressed="false"><i class="fa-solid fa-cat mr-1"></i> Cats</button>
+        <button class="filter-btn px-5 rounded-full bg-white border border-peach font-semibold text-sm" data-filter="haircuts" aria-pressed="false"><i class="fa-solid fa-scissors mr-1"></i> Haircuts</button>
+        <button class="filter-btn px-5 rounded-full bg-white border border-peach font-semibold text-sm" data-filter="spa" aria-pressed="false"><i class="fa-solid fa-spa mr-1"></i> Spa Treatments</button>
+      </div>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <figure class="gal-item" data-cat="dogs haircuts" data-aos="fade-up">
+        <div class="ba shadow-xl" style="--pos:50%">
+          <img src="assets/img/dog_before.png" alt="Poodle mix before grooming with shaggy matted fur" loading="lazy">
+          <img class="ba-after" src="assets/img/dog_after.png" alt="Poodle mix after a teddy bear haircut" loading="lazy">
+          <span class="ba-tag left-3 bg-plum/80 text-cream">Before</span><span class="ba-tag right-3 bg-mint text-plum">After</span>
+          <div class="ba-handle"></div>
+          <input type="range" min="0" max="100" value="50" aria-label="Compare before and after for Biscuit the poodle mix">
+        </div>
+        <figcaption class="mt-4 flex justify-between items-center"><div><p class="font-display text-xl font-bold">Biscuit · Poodle Mix</p><p class="text-sm text-plum/60">Teddy bear cut · Full Grooming</p></div><span class="text-xs font-bold bg-peach px-3 py-1 rounded-full">Haircut</span></figcaption>
+      </figure>
+
+      <figure class="gal-item" data-cat="cats haircuts spa" data-aos="fade-up" data-aos-delay="120">
+        <div class="ba shadow-xl" style="--pos:50%">
+          <img src="assets/img/cat_before.png" alt="Persian cat before grooming with tangled fur" loading="lazy">
+          <img class="ba-after" src="assets/img/cat_after.png" alt="Persian cat after grooming with silky fur" loading="lazy">
+          <span class="ba-tag left-3 bg-plum/80 text-cream">Before</span><span class="ba-tag right-3 bg-mint text-plum">After</span>
+          <div class="ba-handle"></div>
+          <input type="range" min="0" max="100" value="50" aria-label="Compare before and after for Luna the Persian cat">
+        </div>
+        <figcaption class="mt-4 flex justify-between items-center"><div><p class="font-display text-xl font-bold">Luna · Persian Cat</p><p class="text-sm text-plum/60">Dematting & silk conditioning</p></div><span class="text-xs font-bold bg-lav px-3 py-1 rounded-full">Cat Spa</span></figcaption>
+      </figure>
+
+      <figure class="gal-item sm:col-span-2 lg:col-span-1" data-cat="dogs spa" data-aos="fade-up" data-aos-delay="240">
+        <div class="ba shadow-xl" style="--pos:50%">
+          <img src="assets/img/spa_before.png" alt="Cocker spaniel before bath, muddy fur" loading="lazy">
+          <img class="ba-after" src="assets/img/spa_after.png" alt="Cocker spaniel after spa bath, clean and shiny" loading="lazy">
+          <span class="ba-tag left-3 bg-plum/80 text-cream">Before</span><span class="ba-tag right-3 bg-mint text-plum">After</span>
+          <div class="ba-handle"></div>
+          <input type="range" min="0" max="100" value="50" aria-label="Compare before and after for Maple the cocker spaniel">
+        </div>
+        <figcaption class="mt-4 flex justify-between items-center"><div><p class="font-display text-xl font-bold">Maple · Cocker Spaniel</p><p class="text-sm text-plum/60">Luxury Paw Spa · Bath & Blow Dry</p></div><span class="text-xs font-bold bg-mint px-3 py-1 rounded-full">Spa</span></figcaption>
+      </figure>
+    </div>
+    <p class="text-center text-sm text-plum/60 mt-8"><i class="fa-solid fa-hand-pointer mr-1"></i> Drag the slider on any photo to reveal the transformation.</p>
+  </div>
+</section>
+
+<!-- ================= 6. GROOMERS ================= -->
+<section id="groomers" class="relative py-20 lg:py-28 bg-plum text-cream overflow-hidden">
+  <div class="blob bg-lavdeep/30 w-[480px] h-[480px] -top-40 -left-40"></div>
+  <div class="blob bg-coral/20 w-[380px] h-[380px] -bottom-32 -right-24"></div>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <p class="uppercase tracking-[.25em] text-sm font-bold text-peach" data-aos="fade-up">Meet Our Professional Groomers</p>
+      <h2 class="font-display text-4xl sm:text-5xl font-extrabold mt-3" data-aos="fade-up" data-aos-delay="100">Gentle hands, <em class="text-grad">award-winning</em> skills</h2>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Groomer template repeated -->
+      <article class="groomer tilt rounded-[2rem] bg-white/5 border border-white/10 p-4" data-aos="flip-up">
+        <div class="relative rounded-[1.5rem] overflow-hidden aspect-[4/5]">
+          <img class="groomer-img w-full h-full object-cover" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=600&q=70" alt="Portrait of Elena Rivers, head groomer" loading="lazy">
+          <div class="absolute inset-0 bg-gradient-to-t from-plum/90 to-transparent"></div>
+          <div class="socials absolute bottom-4 inset-x-0 flex justify-center gap-2">
+            <a href="#" aria-label="Elena on Instagram" class="w-10 h-10 rounded-full bg-cream text-plum grid place-items-center hover:bg-peach"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="Elena on Facebook" class="w-10 h-10 rounded-full bg-cream text-plum grid place-items-center hover:bg-peach"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="Elena on TikTok" class="w-10 h-10 rounded-full bg-cream text-plum grid place-items-center hover:bg-peach"><i class="fa-brands fa-tiktok"></i></a>
+          </div>
+          <span class="tilt-pop absolute top-3 right-3 bg-peach text-plum text-xs font-bold px-3 py-1 rounded-full">12 yrs</span>
+        </div>
+        <div class="tilt-pop px-2 pt-5 pb-2">
+          <h3 class="font-display text-2xl font-bold">Elena Rivers</h3>
+          <p class="text-peach text-sm font-semibold">Founder & Head Stylist</p>
+          <p class="text-sm text-cream/70 mt-2">Competition-winning stylist known for flawless breed-standard cuts.</p>
+          <div class="flex flex-wrap gap-1.5 mt-3 text-[11px]"><span class="px-2 py-1 rounded-full bg-white/10">Poodles</span><span class="px-2 py-1 rounded-full bg-white/10">Creative Color</span></div>
+        </div>
+      </article>
+
+      <article class="groomer tilt rounded-[2rem] bg-white/5 border border-white/10 p-4 lg:mt-10" data-aos="flip-up" data-aos-delay="100">
+        <div class="relative rounded-[1.5rem] overflow-hidden aspect-[4/5]">
+          <img class="groomer-img w-full h-full object-cover" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=70" alt="Portrait of Marcus Bell, senior groomer" loading="lazy">
+          <div class="absolute inset-0 bg-gradient-to-t from-plum/90 to-transparent"></div>
+          <div class="socials absolute bottom-4 inset-x-0 flex justify-center gap-2">
+            <a href="#" aria-label="Marcus on Instagram" class="w-10 h-10 rounded-full bg-cream text-plum grid place-items-center hover:bg-peach"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="Marcus on Facebook" class="w-10 h-10 rounded-full bg-cream text-plum grid place-items-center hover:bg-peach"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="Marcus on LinkedIn" class="w-10 h-10 rounded-full bg-cream text-plum grid place-items-center hover:bg-peach"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+          <span class="tilt-pop absolute top-3 right-3 bg-mint text-plum text-xs font-bold px-3 py-1 rounded-full">9 yrs</span>
+        </div>
+        <div class="tilt-pop px-2 pt-5 pb-2">
+          <h3 class="font-display text-2xl font-bold">Marcus Bell</h3>
+          <p class="text-mint text-sm font-semibold">Senior Groomer · Large Breeds</p>
+          <p class="text-sm text-cream/70 mt-2">The calm giant whisperer — huskies, doodles and shepherds love him.</p>
+          <div class="flex flex-wrap gap-1.5 mt-3 text-[11px]"><span class="px-2 py-1 rounded-full bg-white/10">De-shedding</span><span class="px-2 py-1 rounded-full bg-white/10">Double Coats</span></div>
+        </div>
+      </article>
+
+      <article class="groomer tilt rounded-[2rem] bg-white/5 border border-white/10 p-4" data-aos="flip-up" data-aos-delay="200">
+        <div class="relative rounded-[1.5rem] overflow-hidden aspect-[4/5]">
+          <img class="groomer-img w-full h-full object-cover" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=600&q=70" alt="Portrait of Priya Shah, feline specialist" loading="lazy">
+          <div class="absolute inset-0 bg-gradient-to-t from-plum/90 to-transparent"></div>
+          <div class="socials absolute bottom-4 inset-x-0 flex justify-center gap-2">
+            <a href="#" aria-label="Priya on Instagram" class="w-10 h-10 rounded-full bg-cream text-plum grid place-items-center hover:bg-peach"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="Priya on Facebook" class="w-10 h-10 rounded-full bg-cream text-plum grid place-items-center hover:bg-peach"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="Priya on TikTok" class="w-10 h-10 rounded-full bg-cream text-plum grid place-items-center hover:bg-peach"><i class="fa-brands fa-tiktok"></i></a>
+          </div>
+          <span class="tilt-pop absolute top-3 right-3 bg-lav text-plum text-xs font-bold px-3 py-1 rounded-full">7 yrs</span>
+        </div>
+        <div class="tilt-pop px-2 pt-5 pb-2">
+          <h3 class="font-display text-2xl font-bold">Priya Shah</h3>
+          <p class="text-lav text-sm font-semibold">Certified Feline Master Groomer</p>
+          <p class="text-sm text-cream/70 mt-2">Patient, quiet, cat-savvy — specialist in Persians and lion cuts.</p>
+          <div class="flex flex-wrap gap-1.5 mt-3 text-[11px]"><span class="px-2 py-1 rounded-full bg-white/10">Cats</span><span class="px-2 py-1 rounded-full bg-white/10">Dematting</span></div>
+        </div>
+      </article>
+
+      <article class="groomer tilt rounded-[2rem] bg-white/5 border border-white/10 p-4 lg:mt-10" data-aos="flip-up" data-aos-delay="300">
+        <div class="relative rounded-[1.5rem] overflow-hidden aspect-[4/5]">
+          <img class="groomer-img w-full h-full object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=70" alt="Portrait of Daniel Cho, puppy specialist" loading="lazy">
+          <div class="absolute inset-0 bg-gradient-to-t from-plum/90 to-transparent"></div>
+          <div class="socials absolute bottom-4 inset-x-0 flex justify-center gap-2">
+            <a href="#" aria-label="Daniel on Instagram" class="w-10 h-10 rounded-full bg-cream text-plum grid place-items-center hover:bg-peach"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="Daniel on Facebook" class="w-10 h-10 rounded-full bg-cream text-plum grid place-items-center hover:bg-peach"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="Daniel on YouTube" class="w-10 h-10 rounded-full bg-cream text-plum grid place-items-center hover:bg-peach"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+          <span class="tilt-pop absolute top-3 right-3 bg-coral text-plum text-xs font-bold px-3 py-1 rounded-full">6 yrs</span>
+        </div>
+        <div class="tilt-pop px-2 pt-5 pb-2">
+          <h3 class="font-display text-2xl font-bold">Daniel Cho</h3>
+          <p class="text-coral text-sm font-semibold">Puppy & Anxious Pet Specialist</p>
+          <p class="text-sm text-cream/70 mt-2">Fear-Free certified; makes first grooms feel like playtime.</p>
+          <div class="flex flex-wrap gap-1.5 mt-3 text-[11px]"><span class="px-2 py-1 rounded-full bg-white/10">Puppies</span><span class="px-2 py-1 rounded-full bg-white/10">Nervous Pets</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 7. PET CARE GUIDE ================= -->
+<section id="care" class="relative py-20 lg:py-28 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-12 gap-10">
+    <aside class="lg:col-span-4 lg:sticky lg:top-28 self-start">
+      <p class="uppercase tracking-[.25em] text-sm font-bold text-lavdeep" data-aos="fade-up">Pet Preparation & Care Guide</p>
+      <h2 class="font-display text-4xl sm:text-5xl font-extrabold mt-3 leading-tight" data-aos="fade-up" data-aos-delay="100">A little prep makes a <em class="text-grad">happier groom</em></h2>
+      <p class="mt-5 text-plum/70" data-aos="fade-up" data-aos-delay="150">Our groomers' favourite tips for before, during and after your visit.</p>
+      <div class="relative mt-8 rounded-[2rem] overflow-hidden aspect-[4/3] shadow-xl" data-aos="zoom-in-right">
+        <img data-parallax="0.05" src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&w=800&q=70" alt="Owner cuddling and preparing her dog" class="w-full h-[115%] object-cover -mt-[7%]" loading="lazy">
+      </div>
+    </aside>
+
+    <div class="lg:col-span-8 grid sm:grid-cols-2 gap-5">
+      <article class="rounded-[2rem] bg-white p-7 border-l-[6px] border-peach shadow-sm" data-aos="fade-left">
+        <div class="flex items-center gap-3"><span class="font-display text-4xl font-extrabold text-peach">01</span><span class="w-12 h-12 rounded-2xl bg-peach grid place-items-center text-lg"><i class="fa-solid fa-person-walking"></i></span></div>
+        <h3 class="font-display text-xl font-bold mt-4">Before the Groom</h3>
+        <ul class="mt-3 space-y-2 text-sm text-plum/75"><li>• Take a relaxing walk & potty break first.</li><li>• Skip big meals 2 hrs before.</li><li>• Tell us about allergies or sore spots.</li></ul>
+      </article>
+      <article class="rounded-[2rem] bg-mint/60 p-7 sm:mt-10" data-aos="fade-left" data-aos-delay="100">
+        <div class="flex items-center gap-3"><span class="font-display text-4xl font-extrabold text-white">02</span><span class="w-12 h-12 rounded-2xl bg-white grid place-items-center text-lg"><i class="fa-solid fa-soap"></i></span></div>
+        <h3 class="font-display text-xl font-bold mt-4">Bathing & Brushing Tips</h3>
+        <ul class="mt-3 space-y-2 text-sm text-plum/75"><li>• Brush long coats 3–4× weekly to prevent mats.</li><li>• Use pet-safe, pH-balanced shampoo only.</li><li>• Bathe every 4–6 weeks for most breeds.</li></ul>
+      </article>
+      <article class="rounded-[2rem] bg-white p-7 border-l-[6px] border-lav shadow-sm" data-aos="fade-left">
+        <div class="flex items-center gap-3"><span class="font-display text-4xl font-extrabold text-lav">03</span><span class="w-12 h-12 rounded-2xl bg-lav grid place-items-center text-lg"><i class="fa-solid fa-bag-shopping"></i></span></div>
+        <h3 class="font-display text-xl font-bold mt-4">What to Bring</h3>
+        <ul class="mt-3 space-y-2 text-sm text-plum/75"><li>• Vaccination records (rabies, DHPP / FVRCP).</li><li>• Leash or secure carrier.</li><li>• A favourite toy or blanket for comfort.</li></ul>
+      </article>
+      <article class="relative rounded-[2rem] overflow-hidden text-cream sm:mt-10 min-h-[240px]" data-aos="fade-left" data-aos-delay="100">
+        <img src="https://images.unsplash.com/photo-1592194996308-7b43878e84a6?auto=format&fit=crop&w=700&q=70" alt="Young kitten being prepared for grooming" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+        <div class="absolute inset-0 bg-gradient-to-t from-plum via-plum/60 to-plum/10"></div>
+        <div class="relative p-7 h-full flex flex-col justify-end">
+          <div class="flex items-center gap-3"><span class="font-display text-4xl font-extrabold text-peach">04</span><span class="w-12 h-12 rounded-2xl bg-peach text-plum grid place-items-center text-lg"><i class="fa-solid fa-baby-carriage"></i></span></div>
+          <h3 class="font-display text-xl font-bold mt-3">Puppy & Kitten Prep</h3>
+          <p class="text-sm text-cream/85 mt-2">Handle paws, ears and mouth daily at home and play hair-dryer sounds softly so the salon feels familiar.</p>
+        </div>
+      </article>
+      <article class="rounded-[2rem] bg-plum text-cream p-7" data-aos="fade-left">
+        <div class="flex items-center gap-3"><span class="font-display text-4xl font-extrabold text-mint">05</span><span class="w-12 h-12 rounded-2xl bg-mint text-plum grid place-items-center text-lg"><i class="fa-solid fa-house-chimney-medical"></i></span></div>
+        <h3 class="font-display text-xl font-bold mt-4">Post-Grooming Care</h3>
+        <ul class="mt-3 space-y-2 text-sm text-cream/80"><li>• Watch for redness after close clips.</li><li>• Avoid swimming or baths for 48 hrs.</li><li>• Keep brushing to extend the fresh look.</li></ul>
+      </article>
+      <article class="rounded-[2rem] bg-gradient-to-br from-peach to-lav p-7 sm:mt-10" data-aos="fade-left" data-aos-delay="100">
+        <div class="flex items-center gap-3"><span class="font-display text-4xl font-extrabold text-white">06</span><span class="w-12 h-12 rounded-2xl bg-white grid place-items-center text-lg"><i class="fa-solid fa-hand-holding-heart"></i></span></div>
+        <h3 class="font-display text-xl font-bold mt-4">Calming Nervous Pets</h3>
+        <ul class="mt-3 space-y-2 text-sm text-plum/80"><li>• Book quiet morning slots.</li><li>• Keep goodbyes short and cheerful.</li><li>• Ask for our Fear-Free, low-noise grooming.</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 8. WHY CHOOSE ================= -->
+<section id="why" class="relative py-20 lg:py-28 text-cream overflow-hidden">
+  <div class="absolute inset-0">
+    <img data-parallax="0.12" src="https://images.unsplash.com/photo-1544568100-847a948585b9?auto=format&fit=crop&w=1800&q=65" alt="" class="w-full h-[130%] object-cover -mt-[15%]" loading="lazy">
+    <div class="absolute inset-0 bg-gradient-to-br from-plum/95 via-plum/88 to-[#6b4a7a]/90"></div>
+  </div>
+  <svg class="float-paw text-white/10 w-40 h-40 -top-6 right-10" style="--r:25deg"><use href="#paw"/></svg>
+  <svg class="float-paw text-peach/20 w-20 h-20 bottom-10 left-10" style="--r:-15deg;animation-delay:-3s"><use href="#paw"/></svg>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-3 gap-12 items-center">
+    <div data-aos="fade-right">
+      <p class="uppercase tracking-[.25em] text-sm font-bold text-peach">Why Choose GroomPaws</p>
+      <h2 class="font-display text-4xl sm:text-5xl font-extrabold mt-3 leading-tight">The <em class="text-grad">difference</em> pets can feel.</h2>
+      <p class="mt-5 text-cream/75">We're obsessed with the details that turn a routine appointment into the best part of your pet's week.</p>
+      <a href="#contact" class="btn mt-8 bg-cream text-plum hover:bg-peach">Experience It <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+    <div class="lg:col-span-2 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="why-card rounded-3xl p-6 border border-white/15 bg-white/5 backdrop-blur" data-aos="zoom-in"><span class="why-icon inline-grid w-14 h-14 rounded-2xl bg-peach text-plum place-items-center text-xl"><i class="fa-solid fa-user-doctor"></i></span><h3 class="font-bold text-lg mt-4">Experienced & Caring Groomers</h3><p class="text-sm text-cream/70 mt-1">Certified pros with 6–12 years each.</p></div>
+      <div class="why-card rounded-3xl p-6 border border-white/15 bg-white/5 backdrop-blur" data-aos="zoom-in" data-aos-delay="80"><span class="why-icon inline-grid w-14 h-14 rounded-2xl bg-mint text-plum place-items-center text-xl"><i class="fa-solid fa-house-chimney"></i></span><h3 class="font-bold text-lg mt-4">Pet-Friendly Environment</h3><p class="text-sm text-cream/70 mt-1">Cage-free suites & calming aromatherapy.</p></div>
+      <div class="why-card rounded-3xl p-6 border border-white/15 bg-white/5 backdrop-blur" data-aos="zoom-in" data-aos-delay="160"><span class="why-icon inline-grid w-14 h-14 rounded-2xl bg-lav text-plum place-items-center text-xl"><i class="fa-solid fa-leaf"></i></span><h3 class="font-bold text-lg mt-4">Premium Grooming Products</h3><p class="text-sm text-cream/70 mt-1">Organic, paraben-free, cruelty-free.</p></div>
+      <div class="why-card rounded-3xl p-6 border border-white/15 bg-white/5 backdrop-blur" data-aos="zoom-in" data-aos-delay="240"><span class="why-icon inline-grid w-14 h-14 rounded-2xl bg-coral text-plum place-items-center text-xl"><i class="fa-solid fa-hand-sparkles"></i></span><h3 class="font-bold text-lg mt-4">Hygiene & Safety First</h3><p class="text-sm text-cream/70 mt-1">Hospital-grade sanitising between pets.</p></div>
+      <div class="why-card rounded-3xl p-6 border border-white/15 bg-white/5 backdrop-blur" data-aos="zoom-in" data-aos-delay="320"><span class="why-icon inline-grid w-14 h-14 rounded-2xl bg-cream text-plum place-items-center text-xl"><i class="fa-solid fa-clipboard-list"></i></span><h3 class="font-bold text-lg mt-4">Personalized Grooming Plans</h3><p class="text-sm text-cream/70 mt-1">Notes & preferences saved for every visit.</p></div>
+      <div class="why-card rounded-3xl p-6 border border-white/15 bg-white/5 backdrop-blur" data-aos="zoom-in" data-aos-delay="400"><span class="why-icon inline-grid w-14 h-14 rounded-2xl bg-gradient-to-br from-peach to-lav text-plum place-items-center text-xl"><i class="fa-solid fa-face-smile-beam"></i></span><h3 class="font-bold text-lg mt-4">Stress-Free Experience</h3><p class="text-sm text-cream/70 mt-1">Fear-Free techniques & breaks as needed.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 9. TESTIMONIALS ================= -->
+<section id="testimonials" class="relative py-20 lg:py-28 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <p class="uppercase tracking-[.25em] text-sm font-bold text-lavdeep" data-aos="fade-up">Happy Pets & Customer Testimonials</p>
+      <h2 class="font-display text-4xl sm:text-5xl font-extrabold mt-3" data-aos="fade-up" data-aos-delay="100">Tails are <em class="text-grad">still wagging</em></h2>
+    </div>
+
+    <div class="relative max-w-5xl mx-auto" data-aos="fade-up" data-aos-delay="150">
+      <div class="overflow-hidden rounded-[2.5rem] bg-white shadow-[0_40px_80px_-40px_rgba(73,51,79,.5)]">
+        <div id="tTrack" class="t-track" aria-live="polite">
+          <!-- slide -->
+          <div class="t-slide grid md:grid-cols-5">
+            <div class="md:col-span-2 aspect-[4/3] md:aspect-auto relative"><img src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=700&q=70" alt="Cooper the golden retriever" class="absolute inset-0 w-full h-full object-cover" loading="lazy"></div>
+            <blockquote class="md:col-span-3 p-8 sm:p-12 flex flex-col justify-center">
+              <div class="text-amber-400" aria-label="5 out of 5 stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+              <p class="font-display text-xl sm:text-2xl leading-snug mt-4">"Cooper used to tremble at the groomer's. At GroomPaws he literally pulls me through the door. His coat has never looked this glossy!"</p>
+              <footer class="mt-6"><p class="font-bold">Sarah Mitchell</p><p class="text-sm text-plum/60">Cooper's mom · Golden Retriever</p></footer>
+            </blockquote>
+          </div>
+          <div class="t-slide grid md:grid-cols-5">
+            <div class="md:col-span-2 aspect-[4/3] md:aspect-auto relative"><img src="https://images.unsplash.com/photo-1596492784531-6e6eb5ea9993?auto=format&fit=crop&w=700&q=70" alt="Mochi the cat" class="absolute inset-0 w-full h-full object-cover" loading="lazy"></div>
+            <blockquote class="md:col-span-3 p-8 sm:p-12 flex flex-col justify-center">
+              <div class="text-amber-400" aria-label="5 out of 5 stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+              <p class="font-display text-xl sm:text-2xl leading-snug mt-4">"Finding a groomer who truly understands cats is rare. Priya was so patient with Mochi — zero stress, and no more mats."</p>
+              <footer class="mt-6"><p class="font-bold">James Okafor</p><p class="text-sm text-plum/60">Mochi's dad · Ragdoll Cat</p></footer>
+            </blockquote>
+          </div>
+          <div class="t-slide grid md:grid-cols-5">
+            <div class="md:col-span-2 aspect-[4/3] md:aspect-auto relative"><img src="https://images.unsplash.com/photo-1588943211346-0908a1fb0b01?auto=format&fit=crop&w=700&q=70" alt="Pepper the puppy" class="absolute inset-0 w-full h-full object-cover" loading="lazy"></div>
+            <blockquote class="md:col-span-3 p-8 sm:p-12 flex flex-col justify-center">
+              <div class="text-amber-400" aria-label="5 out of 5 stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+              <p class="font-display text-xl sm:text-2xl leading-snug mt-4">"Pepper's Puppy First Groom was adorable — they sent photos and a little report card. We're booked monthly now."</p>
+              <footer class="mt-6"><p class="font-bold">Ananya Rao</p><p class="text-sm text-plum/60">Pepper's mom · Cavapoo Puppy</p></footer>
+            </blockquote>
+          </div>
+          <div class="t-slide grid md:grid-cols-5">
+            <div class="md:col-span-2 aspect-[4/3] md:aspect-auto relative"><img src="https://images.unsplash.com/photo-1534361960057-19889db9621e?auto=format&fit=crop&w=700&q=70" alt="Bruno the dog" class="absolute inset-0 w-full h-full object-cover" loading="lazy"></div>
+            <blockquote class="md:col-span-3 p-8 sm:p-12 flex flex-col justify-center">
+              <div class="text-amber-400" aria-label="4.5 out of 5 stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+              <p class="font-display text-xl sm:text-2xl leading-snug mt-4">"The Luxury Paw Spa is worth every penny. Bruno came home smelling incredible and his shedding dropped massively."</p>
+              <footer class="mt-6"><p class="font-bold">Michael Torres</p><p class="text-sm text-plum/60">Bruno's dad · Mixed Breed</p></footer>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+      <div class="flex items-center justify-between mt-6">
+        <div id="tDots" class="flex gap-2"></div>
+        <div class="flex gap-3">
+          <button id="tPrev" class="w-12 h-12 rounded-full border-2 border-plum hover:bg-plum hover:text-cream transition" aria-label="Previous testimonial"><i class="fa-solid fa-arrow-left"></i></button>
+          <button id="tNext" class="w-12 h-12 rounded-full bg-plum text-cream hover:bg-lavdeep transition" aria-label="Next testimonial"><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Happiness showcase marquee -->
+  <div class="mt-16 overflow-hidden" aria-label="Happy pets showcase">
+    <div class="marquee">
+      <!-- set (duplicated for seamless loop) -->
+      <img src="https://images.unsplash.com/photo-1494256997604-768d1f608cac?auto=format&fit=crop&w=400&q=65" alt="Happy cat" class="h-48 sm:h-56 w-40 sm:w-48 object-cover rounded-3xl" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1574158622682-e40e69881006?auto=format&fit=crop&w=500&q=65" alt="Relaxed cat" class="h-48 sm:h-56 w-64 object-cover rounded-[3rem]" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=400&q=65" alt="Smiling dog" class="h-48 sm:h-56 w-40 sm:w-48 object-cover rounded-full" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=500&q=65" alt="Joyful dog" class="h-48 sm:h-56 w-64 object-cover rounded-3xl" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1425082661705-1834bfd09dca?auto=format&fit=crop&w=400&q=65" alt="Fluffy hamster" class="h-48 sm:h-56 w-40 sm:w-48 object-cover rounded-[3rem]" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1529429617124-95b109e86bb8?auto=format&fit=crop&w=500&q=65" alt="Happy groomed dog" class="h-48 sm:h-56 w-64 object-cover rounded-3xl" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1494256997604-768d1f608cac?auto=format&fit=crop&w=400&q=65" alt="" aria-hidden="true" class="h-48 sm:h-56 w-40 sm:w-48 object-cover rounded-3xl" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1574158622682-e40e69881006?auto=format&fit=crop&w=500&q=65" alt="" aria-hidden="true" class="h-48 sm:h-56 w-64 object-cover rounded-[3rem]" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=400&q=65" alt="" aria-hidden="true" class="h-48 sm:h-56 w-40 sm:w-48 object-cover rounded-full" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=500&q=65" alt="" aria-hidden="true" class="h-48 sm:h-56 w-64 object-cover rounded-3xl" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1425082661705-1834bfd09dca?auto=format&fit=crop&w=400&q=65" alt="" aria-hidden="true" class="h-48 sm:h-56 w-40 sm:w-48 object-cover rounded-[3rem]" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1529429617124-95b109e86bb8?auto=format&fit=crop&w=500&q=65" alt="" aria-hidden="true" class="h-48 sm:h-56 w-64 object-cover rounded-3xl" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ================= 10. BOOKING & CONTACT ================= -->
+<section id="contact" class="relative py-20 lg:py-28 bg-gradient-to-b from-cream to-peach/50 overflow-hidden">
+  <svg class="float-paw text-lav w-16 h-16 top-16 left-[3%]" style="--r:-25deg"><use href="#paw"/></svg>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <p class="uppercase tracking-[.25em] text-sm font-bold text-lavdeep" data-aos="fade-up">Appointment Booking & Contact</p>
+      <h2 class="font-display text-4xl sm:text-6xl font-extrabold mt-3 leading-tight" data-aos="fade-up" data-aos-delay="100">Your Pet's Next <em class="text-grad">Glow-Up</em> Starts Here!</h2>
+      <p class="mt-4 text-plum/70" data-aos="fade-up" data-aos-delay="150">Send us a request and our team will get back to you within one business day to confirm your slot.</p>
+    </div>
+
+    <div class="grid lg:grid-cols-12 gap-8">
+      <!-- Form -->
+      <form id="bookingForm" class="lg:col-span-7 bg-white rounded-[2.5rem] p-6 sm:p-10 shadow-[0_40px_80px_-40px_rgba(73,51,79,.5)]" novalidate data-aos="fade-right">
+        <h3 class="font-display text-2xl font-bold mb-6"><i class="fa-solid fa-calendar-plus text-lavdeep mr-2"></i>Request an Appointment</h3>
+        <div class="grid sm:grid-cols-2 gap-x-5 gap-y-3">
+          <div><label for="ownerName" class="text-sm font-semibold">Pet Owner Name *</label><input id="ownerName" name="ownerName" class="field mt-1" autocomplete="name" placeholder="Jane Doe" required><p class="err" id="err-ownerName"></p></div>
+          <div><label for="email" class="text-sm font-semibold">Email Address *</label><input id="email" name="email" type="email" class="field mt-1" autocomplete="email" placeholder="jane@email.com" required><p class="err" id="err-email"></p></div>
+          <div><label for="phone" class="text-sm font-semibold">Phone Number *</label><input id="phone" name="phone" type="tel" class="field mt-1" autocomplete="tel" placeholder="+1 555 123 4567" required><p class="err" id="err-phone"></p></div>
+          <div><label for="petName" class="text-sm font-semibold">Pet Name *</label><input id="petName" name="petName" class="field mt-1" placeholder="Biscuit" required><p class="err" id="err-petName"></p></div>
+          <div><label for="petType" class="text-sm font-semibold">Pet Type *</label>
+            <select id="petType" name="petType" class="field mt-1" required><option value="">Select…</option><option>Dog</option><option>Cat</option><option>Other</option></select><p class="err" id="err-petType"></p></div>
+          <div><label for="breed" class="text-sm font-semibold">Pet Breed *</label><input id="breed" name="breed" class="field mt-1" placeholder="e.g. Shih Tzu" required><p class="err" id="err-breed"></p></div>
+          <div><label for="service" class="text-sm font-semibold">Preferred Grooming Service *</label>
+            <select id="service" name="service" class="field mt-1" required><option value="">Select a service…</option><option>Full Grooming & Styling</option><option>Bath & Blow Dry</option><option>Hair Trimming & Styling</option><option>Nail Clipping</option><option>Ear Cleaning</option><option>Teeth Cleaning</option><option>De-shedding Treatment</option><option>Puppy First Groom</option></select><p class="err" id="err-service"></p></div>
+          <div><label for="package" class="text-sm font-semibold">Grooming Package</label>
+            <select id="package" name="package" class="field mt-1"><option value="">No package</option><option>Puppy Starter</option><option>Fresh & Fluffy</option><option>Luxury Paw Spa</option><option>Complete Grooming</option></select><p class="err"></p></div>
+          <div class="sm:col-span-2"><label for="date" class="text-sm font-semibold">Preferred Appointment Date *</label><input id="date" name="date" type="date" class="field mt-1" required><p class="err" id="err-date"></p></div>
+          <fieldset class="sm:col-span-2"><legend class="text-sm font-semibold mb-2">Preferred Time Slot *</legend>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+              <label class="time-chip relative"><input type="radio" name="slot" value="9:00 – 11:00 AM"><span>9–11 AM</span></label>
+              <label class="time-chip relative"><input type="radio" name="slot" value="11:00 AM – 1:00 PM"><span>11 AM–1 PM</span></label>
+              <label class="time-chip relative"><input type="radio" name="slot" value="2:00 – 4:00 PM"><span>2–4 PM</span></label>
+              <label class="time-chip relative"><input type="radio" name="slot" value="4:00 – 6:00 PM"><span>4–6 PM</span></label>
+            </div><p class="err" id="err-slot"></p></fieldset>
+          <div class="sm:col-span-2"><label for="notes" class="text-sm font-semibold">Additional Requirements</label><textarea id="notes" name="notes" rows="3" class="field mt-1" placeholder="Allergies, temperament, style preferences…"></textarea></div>
+          <!-- honeypot -->
+          <div class="hidden" aria-hidden="true"><label>Website <input name="website" tabindex="-1" autocomplete="off"></label></div>
+        </div>
+        <button id="submitBtn" type="submit" class="btn btn-primary w-full mt-4 text-base">Submit Appointment Request <i class="fa-solid fa-paper-plane"></i></button>
+        <p class="text-xs text-plum/55 mt-3 text-center">Submitting sends a request only — appointments are confirmed by our team by phone or email.</p>
+        <div id="formStatus" hidden></div>
+        <div id="successBox" hidden class="mt-5 rounded-3xl bg-mint/70 p-5 relative" role="alert">
+          <button id="successClose" type="button" class="absolute top-3 right-3 w-9 h-9 rounded-full hover:bg-white/60" aria-label="Dismiss message"><i class="fa-solid fa-xmark"></i></button>
+          <div class="flex gap-4"><span class="w-12 h-12 shrink-0 rounded-2xl bg-white grid place-items-center text-xl"><i class="fa-solid fa-paw text-lavdeep"></i></span>
+          <div><p id="successTitle" class="font-display text-xl font-bold"></p><p id="successMsg" class="text-sm mt-1 text-plum/80"></p></div></div>
+        </div>
+      </form>
+
+      <!-- Info -->
+      <div class="lg:col-span-5 flex flex-col gap-6" data-aos="fade-left">
+        <div class="bg-plum text-cream rounded-[2.5rem] p-7 sm:p-8 relative overflow-hidden">
+          <svg class="absolute -right-6 -bottom-6 w-36 h-36 text-white/5 fill-current"><use href="#paw"/></svg>
+          <h3 class="font-display text-2xl font-bold">Visit the Salon</h3>
+          <ul class="mt-5 space-y-4 text-sm">
+            <li class="flex gap-3"><i class="fa-solid fa-location-dot text-peach mt-1 w-4"></i><span>248 Willow Lane, Suite 3<br>Brooklyn, NY 11201</span></li>
+            <li class="flex gap-3"><i class="fa-solid fa-phone text-peach mt-1 w-4"></i><a href="tel:+15551234567" class="hover:text-peach">+1 (555) 123-4567</a></li>
+            <li class="flex gap-3"><i class="fa-solid fa-envelope text-peach mt-1 w-4"></i><a href="mailto:hello@groompaws.com" class="hover:text-peach">hello@groompaws.com</a></li>
+          </ul>
+          <div class="mt-6 pt-6 border-t border-white/15 text-sm grid grid-cols-2 gap-2">
+            <span class="text-cream/70">Mon – Fri</span><span class="text-right font-semibold">8:00 AM – 7:00 PM</span>
+            <span class="text-cream/70">Saturday</span><span class="text-right font-semibold">9:00 AM – 5:00 PM</span>
+            <span class="text-cream/70">Sunday</span><span class="text-right font-semibold text-peach">Closed</span>
+          </div>
+          <div class="flex gap-2 mt-6">
+            <a href="#" aria-label="Instagram" class="w-11 h-11 rounded-full bg-white/10 hover:bg-peach hover:text-plum grid place-items-center transition"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="Facebook" class="w-11 h-11 rounded-full bg-white/10 hover:bg-peach hover:text-plum grid place-items-center transition"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="TikTok" class="w-11 h-11 rounded-full bg-white/10 hover:bg-peach hover:text-plum grid place-items-center transition"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="#" aria-label="YouTube" class="w-11 h-11 rounded-full bg-white/10 hover:bg-peach hover:text-plum grid place-items-center transition"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="rounded-[2.5rem] overflow-hidden shadow-xl flex-1 min-h-[280px] bg-lav/40 relative">
+          <!-- Google Maps placeholder: replace src with your own Google Maps embed URL -->
+          <iframe title="GroomPaws location on Google Maps" class="absolute inset-0 w-full h-full border-0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://maps.google.com/maps?q=Brooklyn%20Heights%2C%20NY&t=&z=14&ie=UTF8&iwloc=&output=embed"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="bg-plum text-cream pt-16 pb-8 relative overflow-hidden">
+  <svg class="absolute -top-10 right-[10%] w-52 h-52 text-white/[.04] fill-current rotate-12"><use href="#paw"/></svg>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 grid sm:grid-cols-2 lg:grid-cols-12 gap-10">
+    <div class="lg:col-span-4">
+      <a href="#home" class="flex items-center gap-2.5" aria-label="GroomPaws home"><svg class="w-11 h-11"><use href="#logo"/></svg><span class="font-display text-2xl font-extrabold">Groom<span class="text-grad">Paws</span></span></a>
+      <p class="mt-4 text-cream/70 text-sm max-w-sm">Boutique pet grooming & animal care where gentle hands, premium products and a whole lot of love make every pet feel like royalty.</p>
+      <form id="newsForm" class="mt-6" novalidate>
+        <label for="newsEmail" class="text-sm font-semibold">Join our Pawsletter</label>
+        <div class="mt-2 flex bg-white/10 rounded-full p-1.5 focus-within:ring-2 ring-lav">
+          <input id="newsEmail" type="email" placeholder="Your email" class="bg-transparent flex-1 min-w-0 px-4 text-sm placeholder:text-cream/50 focus:outline-none" autocomplete="email">
+          <button class="rounded-full bg-gradient-to-r from-lav to-coral text-plum font-bold px-5 min-h-[44px] text-sm" aria-label="Subscribe">Subscribe</button>
+        </div>
+        <p id="newsMsg" class="text-xs mt-2" aria-live="polite"></p>
+      </form>
+    </div>
+    <div class="lg:col-span-2">
+      <h4 class="font-display text-lg font-bold text-peach">Quick Links</h4>
+      <ul class="mt-4 space-y-2 text-sm text-cream/75">
+        <li><a href="#about" class="hover:text-peach">About Us</a></li><li><a href="#packages" class="hover:text-peach">Packages</a></li><li><a href="#gallery" class="hover:text-peach">Gallery</a></li><li><a href="#groomers" class="hover:text-peach">Our Groomers</a></li><li><a href="#care" class="hover:text-peach">Pet Care Guide</a></li><li><a href="#testimonials" class="hover:text-peach">Testimonials</a></li>
+      </ul>
+    </div>
+    <div class="lg:col-span-3">
+      <h4 class="font-display text-lg font-bold text-peach">Grooming Services</h4>
+      <ul class="mt-4 space-y-2 text-sm text-cream/75">
+        <li><a href="#services" class="hover:text-peach">Full Grooming & Styling</a></li><li><a href="#services" class="hover:text-peach">Bath & Blow Dry</a></li><li><a href="#services" class="hover:text-peach">De-shedding Treatment</a></li><li><a href="#services" class="hover:text-peach">Nail, Ear & Teeth Care</a></li><li><a href="#services" class="hover:text-peach">Puppy First Groom</a></li>
+      </ul>
+    </div>
+    <div class="lg:col-span-3">
+      <h4 class="font-display text-lg font-bold text-peach">Contact & Hours</h4>
+      <ul class="mt-4 space-y-2 text-sm text-cream/75">
+        <li><i class="fa-solid fa-location-dot mr-2 text-mint"></i>248 Willow Lane, Brooklyn, NY</li>
+        <li><i class="fa-solid fa-phone mr-2 text-mint"></i><a href="tel:+15551234567" class="hover:text-peach">+1 (555) 123-4567</a></li>
+        <li><i class="fa-solid fa-envelope mr-2 text-mint"></i><a href="mailto:hello@groompaws.com" class="hover:text-peach">hello@groompaws.com</a></li>
+        <li><i class="fa-regular fa-clock mr-2 text-mint"></i>Mon–Fri 8–7 · Sat 9–5 · Sun Closed</li>
+      </ul>
+      <div class="flex gap-2 mt-5">
+        <a href="#" aria-label="Instagram" class="w-10 h-10 rounded-full bg-white/10 hover:bg-peach hover:text-plum grid place-items-center transition"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" aria-label="Facebook" class="w-10 h-10 rounded-full bg-white/10 hover:bg-peach hover:text-plum grid place-items-center transition"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" aria-label="Pinterest" class="w-10 h-10 rounded-full bg-white/10 hover:bg-peach hover:text-plum grid place-items-center transition"><i class="fa-brands fa-pinterest-p"></i></a>
+        <a href="#" aria-label="YouTube" class="w-10 h-10 rounded-full bg-white/10 hover:bg-peach hover:text-plum grid place-items-center transition"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between gap-3 text-xs text-cream/60">
+    <p>© <span id="year"></span> GroomPaws. All rights reserved.</p>
+    <p>Made with <i class="fa-solid fa-heart text-coral"></i> for pets & their people.</p>
+  </div>
+</footer>
+
+<a id="toTop" href="#home" class="opacity-0 fixed bottom-5 right-5 z-40 w-12 h-12 rounded-full bg-plum text-cream grid place-items-center shadow-xl transition-opacity hover:bg-lavdeep" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></a>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
